@@ -29,10 +29,10 @@ const LeftSidebar = () => {
       <div className="flex flex-col gap-11">
         <Link to="/" className="flex gap-3 items-center">
           <img
-            src="/assets/images/logo.svg"
+            src="/assets/images/main-logo.png"
             alt="logo"
-            width={170}
-            height={36}
+            width={80}
+            height={80}
           />
         </Link>
 
@@ -87,7 +87,7 @@ const LeftSidebar = () => {
         className="shad-button_ghost"
         onClick={(e) => handleSignOut(e)}>
         <img src="/assets/icons/logout.svg" alt="logout" />
-        <p className="small-medium lg:base-medium">Logout</p>
+        <p className="small-medium lg:base-medium">Դուրս գալ</p>
       </Button>
     </nav>
   );

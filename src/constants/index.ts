@@ -2,27 +2,27 @@ export const sidebarLinks = [
   {
     imgURL: "/assets/icons/home.svg",
     route: "/",
-    label: "Home",
+    label: "Գլխավոր",
   },
   {
     imgURL: "/assets/icons/wallpaper.svg",
     route: "/explore",
-    label: "Explore",
+    label: "Բացահայտիր",
   },
   {
     imgURL: "/assets/icons/people.svg",
     route: "/all-users",
-    label: "People",
+    label: "Պատվիրատուներ",
   },
   {
     imgURL: "/assets/icons/bookmark.svg",
     route: "/saved",
-    label: "Saved",
+    label: "Պահպանված",
   },
   {
     imgURL: "/assets/icons/gallery-add.svg",
     route: "/create-post",
-    label: "Create Post",
+    label: "Ստեղծել պոստ",
   },
 ];
 
