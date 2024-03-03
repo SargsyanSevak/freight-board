@@ -8,7 +8,6 @@ const RootLayout = () => {
   return (
     <div className="w-full md:flex flex-col max-w-[2300px] mx-auto">
       <Topbar />
-      <FilterBox />
       {/* <LeftSidebar /> */}
 
       <section className="flex flex-1 h-full">

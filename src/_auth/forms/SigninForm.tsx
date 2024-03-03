@@ -60,14 +60,16 @@ const SigninForm = () => {
 
   return (
     <Form {...form}>
-      <div className="sm:w-420 flex-center flex-col">
-        <img src="/assets/images/logo.svg" alt="logo" />
+      <div className="sm:w-420 flex-center flex-col text-red">
+        <img
+          src="/assets/images/main-logo.png"
+          alt="logo"
+          className="w-[40px]"
+        />
 
-        <h2 className="h3-bold md:h2-bold pt-5 sm:pt-12">
-          Log in to your account
-        </h2>
+        <h2 className="h3-bold text-black md:h2-bold pt-5 sm:pt-12">Մուտք</h2>
         <p className="text-light-3 small-medium md:base-regular mt-2">
-          Welcome back! Please enter your details.
+          Բարի գալուստ: Խնդրում ենք մուտքագրել Ձեր տվյալները:
         </p>
         <form
           onSubmit={form.handleSubmit(handleSignin)}
@@ -77,7 +79,9 @@ const SigninForm = () => {
             name="email"
             render={({ field }) => (
               <FormItem>
-                <FormLabel className="shad-form_label">Email</FormLabel>
+                <FormLabel className="shad-form_label text-black">
+                  Էլ.հասցե
+                </FormLabel>
                 <FormControl>
                   <Input type="text" className="shad-input" {...field} />
                 </FormControl>
@@ -91,7 +95,7 @@ const SigninForm = () => {
             name="password"
             render={({ field }) => (
               <FormItem>
-                <FormLabel className="shad-form_label">Password</FormLabel>
+                <FormLabel className="shad-form_label">Գաղտնաբառ</FormLabel>
                 <FormControl>
                   <Input type="password" className="shad-input" {...field} />
                 </FormControl>
@@ -103,15 +107,15 @@ const SigninForm = () => {
           <Button type="submit" className="shad-button_primary">
             {isLoading || isUserLoading ? (
               <div className="flex-center gap-2">
-                <Loader /> Loading...
+                <Loader /> Սպասեք...
               </div>
             ) : (
               "Մուտք"
             )}
           </Button>
 
-          <p className="text-small-regular text-light-2 text-center mt-2">
-            Don&apos;t have an account?
+          <p className="text-small-regular text-black text-center mt-2">
+            Դեռ չունեք հաշիվ ?
             <Link
               to="/sign-up"
               className="text-primary-500 text-small-semibold ml-1">

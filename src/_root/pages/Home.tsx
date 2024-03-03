@@ -6,6 +6,8 @@ import { Models } from "appwrite";
 import { Loader } from "@/components/shared";
 import { useGetRecentPosts, useGetUsers } from "@/lib/react-query/queries";
 import FreightCard from "@/components/shared/FreightCard";
+import FilterBox from "@/components/shared/FilterBox";
+import Titles from "@/components/shared/Titles";
 
 const Home = () => {
   // const { toast } = useToast();
@@ -38,11 +40,13 @@ const Home = () => {
     <div className="flex flex-1">
       <div className="home-container">
         <div className="home-posts">
+          <FilterBox />
+          <Titles />
           {/* <h2 className="h3-bold md:h2-bold text-left w-full">Բեռներ</h2> */}
           {isPostLoading && !posts ? (
             <Loader />
           ) : (
-            <ul className="flex flex-col flex-1 gap-9 w-full ">
+            <ul className="flex flex-col flex-1 gap-2 w-full py-2">
               {posts?.documents.map((post: Models.Document) => (
                 <li key={post.$id} className="flex justify-center w-full">
                   {/* <PostCard post={post} /> */}

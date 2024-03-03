@@ -136,11 +136,11 @@
 
   /* Home */
   .home-container {
-    @apply flex flex-col flex-1 items-center gap-10  py-10 px-6 custom-scrollbar;
+    @apply flex flex-col flex-1 items-center gap-2    custom-scrollbar;
   }
 
   .home-posts {
-    @apply  flex flex-col items-center w-full gap-6 md:gap-9;
+    @apply  flex flex-col items-center w-full  ;
   }
 
   .home-creators {
@@ -250,7 +250,7 @@
   /* SHADCN COMPONENTS */
   /* Form */
   .shad-form_label {
-    @apply text-white !important;
+    @apply text-black !important;
   }
 
   .shad-form_message {
@@ -258,7 +258,7 @@
   }
 
   .shad-input {
-    @apply h-12 bg-dark-4 border-none placeholder:text-light-4 focus-visible:ring-1 focus-visible:ring-offset-1 ring-offset-light-3 !important;
+    @apply h-12 bg-inherit  placeholder:text-light-4 focus-visible:ring-1 focus-visible:ring-offset-1 ring-offset-light-3 border-[1px] border-black !important;
   }
 
   .shad-textarea {
