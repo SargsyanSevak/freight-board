@@ -52,7 +52,7 @@ const Topbar = () => {
                   }`}>
                   <NavLink
                     to={link.route}
-                    className="flex gap-4 items-center p-4 text-[12px] lg:text-[16px]">
+                    className="flex gap-4 items-center p-4 text-[12px] lg:text-[14px]">
                     {link.label}
                   </NavLink>
                 </li>
