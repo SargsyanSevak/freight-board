@@ -22,6 +22,7 @@ import {
 } from "@/lib/react-query/queries";
 import { SignupValidation } from "@/lib/validation";
 import { useUserContext } from "@/context/AuthContext";
+import { Helmet } from "react-helmet";
 
 const SignupForm = () => {
   const { toast } = useToast();
@@ -85,100 +86,110 @@ const SignupForm = () => {
   };
 
   return (
-    <Form {...form}>
-      <div className="sm:w-420 flex-center flex-col text-red">
-        <img
-          src="/assets/images/main-logo.png"
-          alt="logo"
-          className="w-[40px]"
-        />
+    <>
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>Գրանցվել | Freight Board</title>
+        <link rel="canonical" href="http://mysite.com/example" />
+      </Helmet>
 
-        <h2 className="h3-bold md:h2-bold pt-5 sm:pt-12 text-black">
-          Ստեղծել հաշիվ
-        </h2>
-
-        <form
-          onSubmit={form.handleSubmit(handleSignup)}
-          className="flex flex-col gap-5 w-full mt-4">
-          <FormField
-            control={form.control}
-            name="name"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel className="shad-form_label text-black" color="black">
-                  Անուն
-                </FormLabel>
-                <FormControl>
-                  <Input type="text" className="shad-input" {...field} />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
+      <Form {...form}>
+        <div className="sm:w-420 w-full flex-center flex-col text-red">
+          <img
+            src="/assets/images/main-logo.png"
+            alt="logo"
+            className="w-[40px]"
           />
 
-          <FormField
-            control={form.control}
-            name="username"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel className="shad-form_label">Մուտքանուն</FormLabel>
-                <FormControl>
-                  <Input type="text" className="shad-input" {...field} />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
+          <h2 className="h3-bold md:h2-bold pt-5 sm:pt-12 text-black">
+            Ստեղծել հաշիվ
+          </h2>
 
-          <FormField
-            control={form.control}
-            name="email"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel className="shad-form_label">Էլ.հասցե</FormLabel>
-                <FormControl>
-                  <Input type="text" className="shad-input" {...field} />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
+          <form
+            onSubmit={form.handleSubmit(handleSignup)}
+            className="flex flex-1 flex-col gap-5 w-full mt-4">
+            <FormField
+              control={form.control}
+              name="name"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel
+                    className="shad-form_label text-black"
+                    color="black">
+                    Անուն
+                  </FormLabel>
+                  <FormControl>
+                    <Input type="text" className="shad-input" {...field} />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
 
-          <FormField
-            control={form.control}
-            name="password"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel className="shad-form_label">Գաղտնաբառ</FormLabel>
-                <FormControl>
-                  <Input type="password" className="shad-input" {...field} />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
+            <FormField
+              control={form.control}
+              name="username"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel className="shad-form_label">Մուտքանուն</FormLabel>
+                  <FormControl>
+                    <Input type="text" className="shad-input" {...field} />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
 
-          <Button type="submit" className="shad-button_primary">
-            {isCreatingAccount || isSigningInUser || isUserLoading ? (
-              <div className="flex-center gap-2">
-                <Loader /> Սպասեք...
-              </div>
-            ) : (
-              "Գրանցվել"
-            )}
-          </Button>
+            <FormField
+              control={form.control}
+              name="email"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel className="shad-form_label">Էլ.հասցե</FormLabel>
+                  <FormControl>
+                    <Input type="text" className="shad-input" {...field} />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
 
-          <p className="text-small-regular text-black text-center mt-2">
-            Արդեն ունեք հաշիվ ?
-            <Link
-              to="/sign-in"
-              className="text-primary-500 text-small-semibold ml-1">
-              Մուտք
-            </Link>
-          </p>
-        </form>
-      </div>
-    </Form>
+            <FormField
+              control={form.control}
+              name="password"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel className="shad-form_label">Գաղտնաբառ</FormLabel>
+                  <FormControl>
+                    <Input type="password" className="shad-input" {...field} />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+
+            <Button type="submit" className="shad-button_primary">
+              {isCreatingAccount || isSigningInUser || isUserLoading ? (
+                <div className="flex-center gap-2">
+                  <Loader /> Սպասեք...
+                </div>
+              ) : (
+                "Գրանցվել"
+              )}
+            </Button>
+
+            <p className="text-small-regular text-black text-center mt-2">
+              Արդեն ունեք հաշիվ ?
+              <Link
+                to="/sign-in"
+                className="text-primary-500 text-small-semibold ml-1">
+                Մուտք
+              </Link>
+            </p>
+          </form>
+        </div>
+      </Form>
+    </>
   );
 };
 

@@ -2,6 +2,7 @@ import * as z from "zod";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Link, useNavigate } from "react-router-dom";
+import { Helmet } from "react-helmet";
 
 import {
   Form,
@@ -59,72 +60,80 @@ const SigninForm = () => {
   };
 
   return (
-    <Form {...form}>
-      <div className="sm:w-420 flex-center flex-col text-red">
-        <img
-          src="/assets/images/main-logo.png"
-          alt="logo"
-          className="w-[40px]"
-        />
+    <>
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>Մուտք | Freight Board</title>
+        <link rel="canonical" href="http://mysite.com/example" />
+      </Helmet>
 
-        <h2 className="h3-bold text-black md:h2-bold pt-5 sm:pt-12">Մուտք</h2>
-        <p className="text-light-3 small-medium md:base-regular mt-2">
-          Բարի գալուստ: Խնդրում ենք մուտքագրել Ձեր տվյալները:
-        </p>
-        <form
-          onSubmit={form.handleSubmit(handleSignin)}
-          className="flex flex-col gap-5 w-full mt-4">
-          <FormField
-            control={form.control}
-            name="email"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel className="shad-form_label text-black">
-                  Էլ.հասցե
-                </FormLabel>
-                <FormControl>
-                  <Input type="text" className="shad-input" {...field} />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
+      <Form {...form}>
+        <div className="sm:w-420 flex-center flex-col text-red">
+          <img
+            src="/assets/images/main-logo.png"
+            alt="logo"
+            className="w-[40px]"
           />
 
-          <FormField
-            control={form.control}
-            name="password"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel className="shad-form_label">Գաղտնաբառ</FormLabel>
-                <FormControl>
-                  <Input type="password" className="shad-input" {...field} />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
-
-          <Button type="submit" className="shad-button_primary">
-            {isLoading || isUserLoading ? (
-              <div className="flex-center gap-2">
-                <Loader /> Սպասեք...
-              </div>
-            ) : (
-              "Մուտք"
-            )}
-          </Button>
-
-          <p className="text-small-regular text-black text-center mt-2">
-            Դեռ չունեք հաշիվ ?
-            <Link
-              to="/sign-up"
-              className="text-primary-500 text-small-semibold ml-1">
-              Գրանցվել
-            </Link>
+          <h2 className="h3-bold text-black md:h2-bold pt-5 sm:pt-12">Մուտք</h2>
+          <p className="text-light-3 small-medium md:base-regular mt-2">
+            Բարի գալուստ: Խնդրում ենք մուտքագրել Ձեր տվյալները:
           </p>
-        </form>
-      </div>
-    </Form>
+          <form
+            onSubmit={form.handleSubmit(handleSignin)}
+            className="flex flex-col gap-5 w-full mt-4">
+            <FormField
+              control={form.control}
+              name="email"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel className="shad-form_label text-black">
+                    Էլ.հասցե
+                  </FormLabel>
+                  <FormControl>
+                    <Input type="text" className="shad-input" {...field} />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+
+            <FormField
+              control={form.control}
+              name="password"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel className="shad-form_label">Գաղտնաբառ</FormLabel>
+                  <FormControl>
+                    <Input type="password" className="shad-input" {...field} />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+
+            <Button type="submit" className="shad-button_primary">
+              {isLoading || isUserLoading ? (
+                <div className="flex-center gap-2">
+                  <Loader /> Սպասեք...
+                </div>
+              ) : (
+                "Մուտք"
+              )}
+            </Button>
+
+            <p className="text-small-regular text-black text-center mt-2">
+              Դեռ չունեք հաշիվ ?
+              <Link
+                to="/sign-up"
+                className="text-primary-500 text-small-semibold ml-1">
+                Գրանցվել
+              </Link>
+            </p>
+          </form>
+        </div>
+      </Form>
+    </>
   );
 };
 
