@@ -1,10 +1,5 @@
 export const sidebarLinks = [
   {
-    imgURL: "/assets/icons/home.svg",
-    route: "/",
-    label: "Գլխավոր",
-  },
-  {
     imgURL: "/assets/icons/wallpaper.svg",
     route: "/explore",
     label: "Բացահայտիր",
@@ -22,7 +17,7 @@ export const sidebarLinks = [
   {
     imgURL: "/assets/icons/gallery-add.svg",
     route: "/create-post",
-    label: "Ստեղծել պոստ",
+    label: "Ավելացնել բեռ",
   },
 ];
 
